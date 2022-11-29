@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BeCloser.Views.InboxPage"
+             NavigationPage.HasBackButton="False"
+    NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#E5E5E5">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Styles/Stylesheet1.css"></StyleSheet>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="#73877B">
+                <Frame.Content>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label
+                            Grid.Column="0"
+                            Padding="50,0,0,0"
+                            FontAttributes="Bold"
+                            FontSize="Large"
+                            HorizontalOptions="Center"
+                            Text="Inbox"
+                            TextColor="Black"
+                            VerticalOptions="Center" />
+
+                        <Label
+                            x:Name="logout"
+                            Grid.Column="1"
+                            HorizontalOptions="End"
+                            Text="Logout"
+                            TextDecorations="Underline"
+                            VerticalOptions="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Logout_Tapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+                </Frame.Content>
+            </Frame>
+            <ListView
+                x:Name="lstMsgs"
+                HorizontalOptions="CenterAndExpand"
+                IsPullToRefreshEnabled="True"
+                Refreshing="refreshingPulled"
+                SelectionMode="None"
+                ItemTapped="lstMsgs_ItemSelected"
+                ItemsSource="{Binding .}"
+                VerticalOptions="CenterAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Detail="{Binding content}" Text="{Binding from}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

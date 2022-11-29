@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BeCloser.Views.ConvPage">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Styles/Stylesheet1.css"></StyleSheet>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+
+        <Frame StyleClass="Stylesheet1.css" class="F" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="500" HeightRequest="550" >
+
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid Margin="20" HorizontalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="6*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100*" />
+                    </Grid.ColumnDefinitions>
+                    <StackLayout
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="StartAndExpand">
+                        <ListView
+                        x:Name="lstMsgs"
+                        CachingStrategy="RecycleElement"
+                        HasUnevenRows="True"
+                        HorizontalOptions="FillAndExpand"
+                        ItemTemplate="{StaticResource ChatDataTemplate}"
+                        RowHeight="30"
+                        SelectionMode="None"
+                        SeparatorColor="Transparent"
+                        VerticalOptions="FillAndExpand">
+                        </ListView>
+                    </StackLayout>
+                    <ScrollView
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand">
+                        <StackLayout HorizontalOptions="Center" VerticalOptions="EndAndExpand">
+                            <RadioButton
+                            x:Name="comingNowRadio"
+                            CheckedChanged="ReplyRadio_CheckedChanged"
+                            Content="I will come now" />
+                            <RadioButton
+                            x:Name="fewMinRadio"
+                            CheckedChanged="ReplyRadio_CheckedChanged"
+                            Content="I will be a few minutes late" />
+                            <RadioButton
+                            x:Name="cannotComeRadio"
+                            CheckedChanged="ReplyRadio_CheckedChanged"
+                            Content="I cannot come today" />
+                            <RadioButton
+                            x:Name="otherRadio"
+                            CheckedChanged="otherRadio_CheckedChanged"
+                            Content="other" />
+
+                            <Editor
+                            x:Name="otherEditor"
+                            Margin="0,0,0,10"
+                            AutoSize="TextChanges"
+                            Completed="otherEditor_Completed"
+                            IsSpellCheckEnabled="False"
+                            IsVisible="False"
+                            WidthRequest="200" />
+                        </StackLayout>
+                    </ScrollView>
+                </Grid>
+                <Button
+                StyleClass="Stylesheet1.css"
+                Margin="20"
+                Clicked="Reply_Clicked"
+                CornerRadius="20"
+                HorizontalOptions="Center"
+                Text="Reply"
+                VerticalOptions="Center"
+                WidthRequest="150" />
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>

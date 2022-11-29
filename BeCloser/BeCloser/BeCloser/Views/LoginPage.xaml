@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BeCloser.Views.LoginPage"
+    NavigationPage.HasBackButton="False"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Styles/Stylesheet1.css"></StyleSheet>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+
+        <Frame StyleClass="Stylesheet1.css" class="F" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="500" HeightRequest="550" >
+
+            <StackLayout Padding="40" VerticalOptions="Start">
+
+                <Image
+            HeightRequest="130"
+            HorizontalOptions="Center"
+            Source="logowbg"
+            WidthRequest="130" />
+
+                <Entry
+            x:Name="emailEntry"
+            Margin="5"
+            Keyboard="Email"
+            Placeholder="Email"
+            PlaceholderColor="Gray"
+            TextColor="Black" />
+                <Entry
+            x:Name="passEntry"
+            Margin="5"
+            IsPassword="True"
+            Keyboard="Default"
+            Placeholder="Enter your password" />
+
+                <Button
+                    StyleClass="Stylesheet1.css"
+            Margin="20"
+            BorderWidth="1.5"
+            Clicked="Login_Clicked"
+            CornerRadius="50"
+            HorizontalOptions="Center"
+            Text="Login"
+            TextColor="White"
+            VerticalOptions="Center" />
+
+
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>

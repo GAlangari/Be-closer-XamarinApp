@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BeCloser.Views.MonitorMain">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Styles/Stylesheet1.css"></StyleSheet>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+
+        <Frame StyleClass="Stylesheet1.css" class="F" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="500" HeightRequest="550" >
+
+            <StackLayout
+            Margin="70"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="StartAndExpand">
+
+
+                <StackLayout Orientation="Horizontal" Spacing="37" HorizontalOptions="Center" VerticalOptions="Center" Margin="30,30,0,30">
+                    <Label Text="Welcome to Be Closer! &#x0a; Let's get started, fill the below fields" VerticalOptions="Center" HorizontalOptions="Center" 
+                           FontSize="Micro" FontAttributes="Bold" HorizontalTextAlignment="Center" ></Label>
+                </StackLayout>
+                <StackLayout
+                HorizontalOptions="StartAndExpand"
+                Orientation="Horizontal"
+                Spacing="37"
+                VerticalOptions="Center">
+                    <Label
+                    FontAttributes="Italic"
+                    FontSize="Micro"
+                    HorizontalOptions="Start"
+                    Text="Who are you?"
+                    VerticalOptions="Center" />
+                    <Picker
+                    x:Name="whoAreYou"
+                    Margin="10"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"
+                    WidthRequest="150" />
+                </StackLayout>
+
+                <StackLayout
+                HorizontalOptions="Start"
+                Orientation="Horizontal"
+                Spacing="10"
+                VerticalOptions="Center">
+                    <Label
+                    FontAttributes="Italic"
+                    FontSize="Micro"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="Teacher's name?" />
+                                    <Span Text=" *" TextColor="Red" />
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Picker
+                    x:Name="teacherName"
+                    Margin="10"
+                    HorizontalOptions="Center"
+                    SelectedIndexChanged="teacherName_SelectedIndexChanged"
+                    VerticalOptions="Center"
+                    WidthRequest="150" />
+                </StackLayout>
+
+                <StackLayout
+                HorizontalOptions="Start"
+                Orientation="Horizontal"
+                Spacing="40"
+                VerticalOptions="Center">
+                    <Label
+                    FontAttributes="Italic"
+                    FontSize="Micro"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="Your name?" />
+                                    <Span Text=" *" TextColor="Red" />
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Entry
+                    x:Name="reqName"
+                    Margin="10"
+                    HorizontalOptions="End"
+                    VerticalOptions="End"
+                    WidthRequest="150" />
+                </StackLayout>
+
+                <StackLayout
+                HorizontalOptions="Start"
+                Orientation="Horizontal"
+                Spacing="73"
+                VerticalOptions="Center">
+                    <Label
+                    FontAttributes="Italic"
+                    FontSize="Micro"
+                    HorizontalOptions="Center"
+                    Text="Your ID?"
+                    VerticalOptions="Center" />
+                    <Entry
+                    x:Name="reqID"
+                    Margin="10"
+                    HorizontalOptions="End"
+                    VerticalOptions="End"
+                    WidthRequest="150" />
+                </StackLayout>
+
+                <Button
+                    StyleClass="Stylesheet1.css"
+                Margin="40"
+                Clicked="Next_Clicked"
+                CornerRadius="20"
+                HorizontalOptions="Center"
+                Text="Next"
+                VerticalOptions="Center"
+                WidthRequest="250"/>
+                <Label x:Name="test" />
+
+            </StackLayout>
+        </Frame>
+
+    </ContentPage.Content>
+</ContentPage>

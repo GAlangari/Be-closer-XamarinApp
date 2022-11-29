@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BeCloser.Views.ConvMonitor">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Styles/Stylesheet1.css"></StyleSheet>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+
+        <Frame StyleClass="Stylesheet1.css" class="F" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="500" HeightRequest="550" >
+
+            <StackLayout
+            Margin="20"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Start">
+
+
+
+                <Grid Margin="0,10,10,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="0.5*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="3*"/>
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".5*"/>
+                        <ColumnDefinition Width=".5*"/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <ListView
+                x:Name="lstMsgs"
+                Grid.Row="0"
+                Grid.Column="0"
+                CachingStrategy="RecycleElement"
+                HasUnevenRows="True"
+                IsPullToRefreshEnabled="True"
+                HorizontalOptions="FillAndExpand"
+                ItemTemplate="{StaticResource ChatDataTemplate}"
+                RowHeight="150"
+                SelectionMode="None"
+                SeparatorColor="Transparent"
+                VerticalOptions="FillAndExpand">
+                    </ListView>
+                    <Frame x:Name="teacherMsgF"
+                   BackgroundColor="Gray"
+                   CornerRadius="10"
+                   Margin="0"
+                   Padding="10,0,10,0"
+                   Grid.Row="1"
+                   Grid.Column="1"
+                   IsVisible="false">
+                        <Label x:Name="teacherMsg"
+                       BackgroundColor="Transparent"
+                       LineBreakMode="WordWrap"/>
+                    </Frame>
+                    <Button 
+                        CornerRadius="20"
+                        Text="check" 
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        HeightRequest="20"
+                        WidthRequest="20"
+                        x:Name="checkResButton" 
+                        Clicked="checkResButton_Clicked"
+                        IsVisible="true"/>
+
+                    <Grid HorizontalOptions="Center" VerticalOptions="End" 
+                      Grid.Row="4"
+                      Grid.Column="1"
+                      Margin="10"
+                      WidthRequest="300">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <CollectionView x:Name="eventList" Grid.Row="1" ItemsLayout="VerticalList" ItemsSource="{Binding}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <ContentView>
+                                        <Frame HasShadow="True" CornerRadius="15" Margin="0,5" Padding="10" HeightRequest="60" BackgroundColor="LightCoral">
+                                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="*"/>
+                                                </Grid.RowDefinitions>
+                                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                                    <Label Text="Timeout Counter" FontSize="12" TextColor="#F8F8F8"/>
+                                                </StackLayout>
+
+                                                <StackLayout Orientation="Horizontal" Grid.Row="1" HorizontalOptions="End" Margin="-10" Spacing="15">
+                                                    <StackLayout>
+                                                        <Label Text="{Binding Minutes}" FontSize="25" FontAttributes="Bold" TextColor="White" HorizontalOptions="End"/>
+                                                        <Label Text="MINUTES" FontSize="8" TextColor="White" Opacity="0.5" HorizontalOptions="End" Margin="0,-5,0,0"/>
+                                                    </StackLayout>
+                                                    <StackLayout>
+                                                        <Label Text="{Binding Seconds}" FontSize="25" FontAttributes="Bold" TextColor="White" HorizontalOptions="End"/>
+                                                        <Label Text="SECONDS" FontSize="8" TextColor="White" Opacity="0.5" HorizontalOptions="End" Margin="0,-5,0,0"/>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </Grid>
+                                        </Frame>
+                                    </ContentView>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </Grid>
+                    <Button
+                        StyleClass="Stylesheet1.css"
+                    Grid.Row="5"
+                    Grid.ColumnSpan="2"
+                    Margin="40"
+                    Clicked="Home_Clicked"
+                    CornerRadius="20"
+                    HorizontalOptions="Center"
+                    Text="Home"
+                    VerticalOptions="Center"
+                    WidthRequest="250"/>
+                </Grid>
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>

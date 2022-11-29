@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BeCloser.Views.ComTypeMonitor"
+    NavigationPage.BackButtonTitle="Back"
+    NavigationPage.HasBackButton="True">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Styles/Stylesheet1.css"></StyleSheet>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+
+        <Frame StyleClass="Stylesheet1.css" class="F" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="500" HeightRequest="550" >
+
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+
+
+                <StackLayout Orientation="Horizontal" Spacing="37" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="What do you want from the teacher?" HorizontalOptions="Center" 
+                           FontSize="Micro" FontAttributes="Bold" Margin="30"></Label>
+                </StackLayout>
+
+                <StackLayout
+                HorizontalOptions="Start"
+                Orientation="Horizontal"
+                VerticalOptions="Center">
+                    <CheckBox x:Name="haveQ" Color="Black" />
+                    <Label
+                    x:Name="haveQLabel"
+                    HorizontalOptions="Center"
+                    Text="I have a question"
+                    VerticalOptions="Center" />
+                </StackLayout>
+
+                <StackLayout
+                HorizontalOptions="Start"
+                Orientation="Horizontal"
+                VerticalOptions="Center">
+                    <CheckBox x:Name="seeU" Color="Black" />
+                    <Label
+                    x:Name="seeULabel"
+                    HorizontalOptions="Center"
+                    Text="I need to see you"
+                    VerticalOptions="Center" />
+                </StackLayout>
+
+                <StackLayout
+                HorizontalOptions="Start"
+                Orientation="Horizontal"
+                VerticalOptions="Center">
+                    <CheckBox x:Name="seePaper" Color="Black" />
+                    <Label
+                    x:Name="seePaperLabel"
+                    HorizontalOptions="Center"
+                    Text="I want to see my paper"
+                    VerticalOptions="Center" />
+                </StackLayout>
+
+                <StackLayout
+                HorizontalOptions="Start"
+                Orientation="Horizontal"
+                VerticalOptions="Center">
+                    <CheckBox
+                    x:Name="other"
+                    CheckedChanged="other_CheckedChanged"
+                    Color="Black" />
+                    <Label
+                    x:Name="otherLabel"
+                    HorizontalOptions="Center"
+                    Text="Other"
+                    VerticalOptions="Center" />
+                </StackLayout>
+
+                <Editor
+                x:Name="otherEntry"
+                Margin="0,0,0,10"
+                AutoSize="TextChanges"
+                IsSpellCheckEnabled="False"
+                IsVisible="False"
+                WidthRequest="200" />
+
+                <Button
+                StyleClass="Stylesheet1.css"
+                Margin="40"
+                Clicked="Send_Clicked"
+                CornerRadius="20"
+                HorizontalOptions="Center"
+                Text="Send"
+                VerticalOptions="Center"
+                WidthRequest="250"/>
+                <!-- <Label x:Name="test"/> -->
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>
